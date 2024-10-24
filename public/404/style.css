@@ -1,0 +1,134 @@
+body {
+  background-color: black;
+  color: #cccccc;
+}
+a {
+  color: #666666;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+header {
+  margin: 30px;
+  position: relative;
+  z-index: 100;
+  max-width: 270px;
+}
+@media (max-width: 570px) {
+  header {
+    margin: 15px;
+    max-width: 160px;
+  }
+  #cubes {
+    transform: translate3d(0, 0, -500px) rotateY(45deg);
+  }
+}
+#viewport {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 500px;
+  overflow: hidden;
+}
+#tower {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: transform 2.5s linear;
+  transform-style: preserve-3d;
+}
+#cubes {
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  perspective-origin: 50% 100%;
+  transform: translate3d(0, -100px, -300px) rotateY(45deg);
+}
+.face {
+  position: absolute;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  bottom: 0;
+  left: 50%;
+  margin-left: -100px;
+}
+.face .background rect {
+  fill-opacity: 0.7;
+  fill: black;
+}
+.face .corners polygon,
+.face .cross polygon {
+  fill: white;
+}
+.face.floor {
+  transform: translateY(200px) translateZ(100px);
+  transform-origin: 0 0;
+  animation-name: floor-animation;
+}
+.face.left {
+  transform: translateX(-100px) rotateY(-90deg) rotateX(90deg);
+  transform-origin: 100px 200px;
+  animation-name: left-animation;
+}
+.face.back {
+  transform: translateX(-200px) translateZ(-100px) rotateY(90deg);
+  transform-origin: 200px 0;
+  animation-name: back-animation;
+}
+.face.right {
+  transform: translateZ(-100px);
+  transform-origin: 200px 0;
+  animation-name: right-animation;
+}
+.face.front {
+  transform: translateZ(100px) rotateY(-90deg);
+  transform-origin: 200px 0;
+  animation-name: front-animation;
+}
+@keyframes floor-animation {
+  from {
+    transform: translateY(200px) translateZ(100px);
+  }
+  to {
+    transform: translateY(200px) translateZ(100px) rotateX(-90deg);
+  }
+}
+@keyframes left-animation {
+  from {
+    transform: translateX(-100px) rotateY(-90deg) rotateX(90deg);
+  }
+  to {
+    transform: translateX(-100px) rotateY(-90deg) rotateX(0deg);
+  }
+}
+@keyframes back-animation {
+  from {
+    transform: translateX(-200px) translateZ(-100px) rotateY(90deg);
+  }
+  to {
+    transform: translateX(-200px) translateZ(-100px) rotateY(180deg);
+  }
+}
+@keyframes right-animation {
+  from {
+    transform: translateZ(-100px);
+  }
+  to {
+    transform: translateZ(-100px) rotateY(90deg);
+  }
+}
+@keyframes front-animation {
+  from {
+    transform: translateZ(100px) rotateY(-90deg);
+  }
+  to {
+    transform: translateZ(100px) rotateY(0deg);
+  }
+}

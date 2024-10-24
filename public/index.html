@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.2.2/maptiler-sdk.umd.js"></script>
+
+    <link rel="stylesheet" href="./pico.min.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Vicinity</title>
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li>
+            <strong>
+              <img src="./assets/vicinityIcon.png" alt="Logo" class="logo"
+            /></strong>
+          </li>
+        </ul>
+        <ul>
+          <li><a href="#" class="contrast">About</a></li>
+          <li><a href="#" class="contrast">Log In</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="grid">
+        <div class="container">
+          <h1 class="gradient-text">VICINITY</h1>
+          <p></p>
+          <button class="landingButton">Sign Up</button>
+          <button class="landingButton">Log In</button>
+        </div>
+        <!-- Combined Map and Chat Container -->
+        <div class="map-chat-container">
+          <!-- Map Container -->
+          <div class="map-wrap" id="map-wrap">
+            <div id="map"></div>
+            <button id="add-chat-button" class="add-chat-button">
+              Add Chat
+            </button>
+          </div>
+          <!-- Chat Container -->
+          <div class="chat-container" id="chat-container">
+            <div class="chat-header">
+              <button id="hide-chat-button" class="toggle-chat-button">
+                Back to Map
+              </button>
+            </div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+              <input
+                type="text"
+                id="message-input"
+                placeholder="Type your message..."
+              />
+              <button id="send-button">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script type="module" src="main.js"></script>
+    <!-- <script type="module" src="map.js"></script> -->
+  </body>
+</html>
